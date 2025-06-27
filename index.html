@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SellBot Security Discord</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="grid-overlay"></div>
+    <div class="floating-dots" id="floating-dots"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo" id="home-link"><span>Sell</span>Bot Security</a>
+        <div class="nav-links">
+            <a href="#" id="products-link">Produits</a>
+            <a href="#" id="contact-link">Contact</a>
+            <a href="#" id="reviews-link">Avis</a>
+        </div>
+        <div class="auth-buttons" id="auth-buttons">
+            <button class="login-btn" id="login-btn-nav">Login</button>
+            <button class="register-btn" id="register-btn-nav">Register</button>
+        </div>
+        <div class="user-profile" id="user-profile" style="display: none;">
+            <div class="user-avatar" id="user-avatar">U</div>
+            <div class="user-menu" id="user-menu">
+                <div class="user-menu-item" id="profile-link"><i class="fas fa-user"></i> Profil</div>
+                <div class="user-menu-item" id="orders-link"><i class="fas fa-shopping-bag"></i> Commandes</div>
+                <div class="user-menu-item" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Déconnexion</div>
+            </div>
+        </div>
+        <div class="cart-icon" id="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cart-count">0</span>
+        </div>
+    </nav>
+    
+    <!-- Page d'accueil -->
+    <div class="home-container" id="home-page">
+        <h1 class="title">
+            <span>SellBot Security</span><br>
+            Protection Discord Premium
+        </h1>
+        <button class="enter-btn" id="enter-btn">Accéder</button>
+    </div>
+    
+    <!-- Page des catégories -->
+    <div class="categories-page" id="categories-page">
+        <h2 class="categories-title">Nos Solutions de Sécurité</h2>
+        
+        <div class="categories-grid">
+            <!-- Carte 1 - Sécurité Basic -->
+            <div class="category-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2452/2452056.png" alt="Sécurité Basic" class="category-image">
+                <h3 class="category-title">Sécurité Basic</h3>
+                <div class="category-price">19.99€/$</div>
+                <button class="learn-more-btn" data-product="basic">Learn More</button>
+            </div>
+            
+            <!-- Carte 2 - Sécurité Medium -->
+            <div class="category-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2452/2452079.png" alt="Sécurité Medium" class="category-image">
+                <h3 class="category-title">Sécurité Medium</h3>
+                <div class="category-price">39.99€/$</div>
+                <button class="learn-more-btn" data-product="medium">Learn More</button>
+            </div>
+            
+            <!-- Carte 3 - Sécurité Avancée -->
+            <div class="category-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2452/2452030.png" alt="Sécurité Avancée" class="category-image">
+                <h3 class="category-title">Sécurité Avancée</h3>
+                <div class="category-price">79.99€/$</div>
+                <button class="learn-more-btn" data-product="advanced">Learn More</button>
+            </div>
+            
+            <!-- Carte 4 - Sécurité Exceptionnelle -->
+            <div class="category-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2452/2452093.png" alt="Sécurité Exceptionnelle" class="category-image">
+                <h3 class="category-title">Sécurité Exceptionnelle</h3>
+                <div class="category-price">149.99€/$</div>
+                <button class="learn-more-btn" data-product="exceptional">Learn More</button>
+            </div>
+            
+            <!-- Carte 5 - Protection Anti-Raid -->
+            <div class="category-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2452/2452059.png" alt="Protection Anti-Raid" class="category-image">
+                <h3 class="category-title">Protection Anti-Raid</h3>
+                <div class="category-price">49.99€/$</div>
+                <button class="learn-more-btn" data-product="anti-raid">Learn More</button>
+            </div>
+            
+            <!-- Carte 6 - Modération Automatique -->
+            <div class="category-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2452/2452048.png" alt="Modération Automatique" class="category-image">
+                <h3 class="category-title">Modération Automatique</h3>
+                <div class="category-price">59.99€/$</div>
+                <button class="learn-more-btn" data-product="auto-mod">Learn More</button>
+            </div>
+            
+            <!-- Carte 7 - Surveillance 24/7 -->
+            <div class="category-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2452/2452077.png" alt="Surveillance 24/7" class="category-image">
+                <h3 class="category-title">Surveillance 24/7</h3>
+                <div class="category-price">99.99€/$</div>
+                <button class="learn-more-btn" data-product="monitoring">Learn More</button>
+            </div>
+            
+            <!-- Carte 8 - Solution Entreprise -->
+            <div class="category-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2452/2452085.png" alt="Solution Entreprise" class="category-image">
+                <h3 class="category-title">Solution Entreprise</h3>
+                <div class="category-price">199.99€/$</div>
+                <button class="learn-more-btn" data-product="enterprise">Learn More</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page produit -->
+    <div class="product-page" id="product-page">
+        <div class="product-container">
+            <div class="product-header">
+                <button class="back-btn" id="back-btn"><i class="fas fa-arrow-left"></i> Retour aux produits</button>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="product-cart-count">0</span>
+                </div>
+            </div>
+            
+            <div class="product-content">
+                <div class="product-image-container">
+                    <img src="" alt="Product Image" class="product-image" id="product-image">
+                </div>
+                
+                <div class="product-details">
+                    <h1 class="product-title" id="product-title"></h1>
+                    <div class="product-price" id="product-price"></div>
+                    
+                    <div class="product-description" id="product-description"></div>
+                    
+                    <div class="product-features">
+                        <h3>Fonctionnalités principales</h3>
+                        <ul id="product-features"></ul>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="buy-btn" id="buy-btn">Acheter maintenant</button>
+                        <button class="add-to-cart-btn" id="add-to-cart-btn"><i class="fas fa-cart-plus"></i> Ajouter au panier</button>
+                    </div>
+                    
+                    <div class="reviews-section" id="reviews-section">
+                        <h3 class="reviews-title">Avis clients</h3>
+                        <div class="reviews-container" id="reviews-container"></div>
+                        <button class="add-review-btn" id="add-review-btn"><i class="fas fa-pen"></i> Ajouter un avis</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Contact -->
+    <div class="contact-page" id="contact-page">
+        <h2 class="contact-title">Contactez-nous</h2>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>Informations de contact</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Adresse</h4>
+                            <p>123 Rue de la Sécurité, 75000 Paris, France</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Téléphone</h4>
+                            <p>+33 1 23 45 67 89</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <a href="mailto:contact@sellbotsecurity.com">contact@sellbotsecurity.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Heures d'ouverture</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Support</h4>
+                            <p>24h/24, 7j/7</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Assistance technique</h4>
+                            <p>Lundi - Vendredi: 9h - 18h</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-container">
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="contact-name">Nom complet</label>
+                        <input type="text" id="contact-name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-email">Email</label>
+                        <input type="email" id="contact-email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-subject">Sujet</label>
+                        <input type="text" id="contact-subject" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" class="form-control" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Panier -->
+    <div class="cart-page" id="cart-page">
+        <h2 class="cart-title">Votre Panier</h2>
+        
+        <div class="cart-container">
+            <div class="cart-items" id="cart-items">
+                <!-- Les éléments du panier seront ajoutés dynamiquement ici -->
+            </div>
+            
+            <div class="cart-summary">
+                <div class="summary-card">
+                    <h3 class="summary-title">Résumé de la commande</h3>
+                    
+                    <div class="summary-row">
+                        <span>Sous-total</span>
+                        <span class="summary-price" id="cart-subtotal">0.00€</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Frais de service</span>
+                        <span class="summary-price">0.00€</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Taxes</span>
+                        <span class="summary-price">0.00€</span>
+                    </div>
+                    
+                    <div class="summary-row summary-total">
+                        <span>Total</span>
+                        <span class="summary-price" id="cart-total">0.00€</span>
+                    </div>
+                    
+                    <button class="checkout-btn" id="checkout-btn">Passer la commande</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>CGU</h3>
+                <ul>
+                    <li><a href="#">Conditions générales d'utilisation</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">Politique de remboursement</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Legacy</h3>
+                <ul>
+                    <li><a href="#">Anciennes versions</a></li>
+                    <li><a href="#">Historique des mises à jour</a></li>
+                    <li><a href="#">Support des versions antérieures</a></li>
+                    <li><a href="#">Migration vers les nouvelles versions</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Pourquoi nous choisir</h3>
+                <ul>
+                    <li><a href="#">Sécurité garantie à 99.9%</a></li>
+                    <li><a href="#">Support technique 24h/24</a></li>
+                    <li><a href="#">Mises à jour régulières</a></li>
+                    <li><a href="#">Solution personnalisable</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">Support technique</a></li>
+                    <li><a href="#">Notre serveur Discord</a></li>
+                    <li><a href="#">Twitter/X</a></li>
+                    <li><a href="#">Contact par email</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 Sell Bot Security. Tous droits réservés.
+        </div>
+    </div>
+
+    <!-- Modale de connexion -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="close-login-modal">&times;</span>
+            <h2 class="modal-title">Connexion</h2>
+            
+            <form class="auth-form" id="login-form">
+                <div class="alert" id="login-alert" style="display: none;"></div>
+                
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Mot de passe</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                
+                <button type="submit" class="auth-submit-btn">Se connecter</button>
+                
+                <div class="auth-switch">
+                    Pas encore de compte? <button type="button" class="auth-switch-btn" id="switch-to-register">S'inscrire</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modale d'inscription -->
+    <div class="modal" id="register-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="close-register-modal">&times;</span>
+            <h2 class="modal-title">Inscription</h2>
+            
+            <form class="auth-form" id="register-form">
+                <div class="alert" id="register-alert" style="display: none;"></div>
+                
+                <div class="form-group">
+                    <label for="register-name">Nom complet</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-password">Mot de passe</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirmer le mot de passe</label>
+                    <input type="password" id="register-confirm-password" required>
+                </div>
+                
+                <button type="submit" class="auth-submit-btn">S'inscrire</button>
+                
+                <div class="auth-switch">
+                    Déjà un compte? <button type="button" class="auth-switch-btn" id="switch-to-login">Se connecter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modale de paiement -->
+    <div class="modal" id="payment-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="close-payment-modal">&times;</span>
+            <h2 class="modal-title">Paiement</h2>
+            
+            <div class="alert" id="payment-alert" style="display: none;"></div>
+            
+            <div class="payment-methods">
+                <div class="payment-method selected" data-method="credit-card">
+                    <div class="payment-icon">
+                        <i class="far fa-credit-card"></i>
+                    </div>
+                    <div class="payment-text">
+                        <h4>Carte de crédit</h4>
+                        <p>Visa, Mastercard, American Express</p>
+                    </div>
+                </div>
+                
+                <div class="payment-method" data-method="paypal">
+                    <div class="payment-icon">
+                        <i class="fab fa-paypal"></i>
+                    </div>
+                    <div class="payment-text">
+                        <h4>PayPal</h4>
+                        <p>Paiement sécurisé avec PayPal</p>
+                    </div>
+                </div>
+                
+                <div class="payment-method" data-method="crypto">
+                    <div class="payment-icon">
+                        <i class="fab fa-bitcoin"></i>
+                    </div>
+                    <div class="payment-text">
+                        <h4>Crypto-monnaie</h4>
+                        <p>Bitcoin, Ethereum, Litecoin</p>
+                    </div>
+                </div>
+            </div>
+            
+            <form id="credit-card-form" style="display: block;">
+                <div class="form-group">
+                    <label for="card-number">Numéro de carte</label>
+                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="card-name">Nom sur la carte</label>
+                    <input type="text" id="card-name" placeholder="John Doe" required>
+                </div>
+                
+                <div class="form-group" style="display: flex; gap: 15px;">
+                    <div style="flex: 1;">
+                        <label for="card-expiry">Date d'expiration</label>
+                        <input type="text" id="card-expiry" placeholder="MM/AA" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="card-cvv">CVV</label>
+                        <input type="text" id="card-cvv" placeholder="123" required>
+                    </div>
+                </div>
+            </form>
+            
+            <form id="paypal-form" style="display: none;">
+                <div class="form-group">
+                    <label for="paypal-email">Email PayPal</label>
+                    <input type="email" id="paypal-email" required>
+                </div>
+            </form>
+            
+            <form id="crypto-form" style="display: none;">
+                <div class="form-group">
+                    <p>Sélectionnez votre crypto-monnaie pour afficher l'adresse de paiement</p>
+                    <select id="crypto-currency" class="form-control">
+                        <option value="bitcoin">Bitcoin</option>
+                        <option value="ethereum">Ethereum</option>
+                        <option value="litecoin">Litecoin</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="crypto-address-container" style="display: none;">
+                    <label>Adresse de paiement</label>
+                    <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px; word-break: break-all;">
+                        1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa
+                    </div>
+                    <p style="font-size: 0.8rem; margin-top: 5px;">Envoyez exactement <strong id="crypto-amount">0.0054 BTC</strong> à cette adresse</p>
+                </div>
+            </form>
+            
+            <button class="auth-submit-btn" id="confirm-payment-btn">Confirmer le paiement</button>
+        </div>
+    </div>
+
+    <!-- Modale d'avis -->
+    <div class="modal" id="review-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="close-review-modal">&times;</span>
+            <h2 class="modal-title">Ajouter un avis</h2>
+            
+            <form id="review-form">
+                <div class="form-group">
+                    <label>Note</label>
+                    <div class="rating-stars" style="display: flex; gap: 5px; margin: 10px 0;">
+                        <i class="far fa-star" data-rating="1" style="font-size: 1.5rem; cursor: pointer; color: #ffc107;"></i>
+                        <i class="far fa-star" data-rating="2" style="font-size: 1.5rem; cursor: pointer; color: #ffc107;"></i>
+                        <i class="far fa-star" data-rating="3" style="font-size: 1.5rem; cursor: pointer; color: #ffc107;"></i>
+                        <i class="far fa-star" data-rating="4" style="font-size: 1.5rem; cursor: pointer; color: #ffc107;"></i>
+                        <i class="far fa-star" data-rating="5" style="font-size: 1.5rem; cursor: pointer; color: #ffc107;"></i>
+                    </div>
+                    <input type="hidden" id="review-rating" value="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="review-title">Titre</label>
+                    <input type="text" id="review-title" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="review-content">Votre avis</label>
+                    <textarea id="review-content" class="form-control" required></textarea>
+                </div>
+                
+                <button type="submit" class="auth-submit-btn">Publier l'avis</button>
+            </form>
+        </div>
+    </div>
+     <script src="index.js"></script>
+    
+</body>
+</html>
